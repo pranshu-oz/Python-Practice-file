@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--BTW Win7 MUP Definition XML-->
+<MUPDefinition xsi:schemaLocation="http://schemas.dell.com/openmanage/cm/2/0/mupdefinition.xsd mupdefinition.xsd" xmlns="http://schemas.dell.com/openmanage/cm/2/0/mupdefinition.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <packageinformation>
+    <name>Broadcom Bluetooth</name>
+    <version>12.0.1.750</version>
+    <installertype>custom</installertype>
+    <packagegrouping>single_package</packagegrouping>
+    <packagingtype>executable</packagingtype>
+    <releasetype>DRVR</releasetype>
+    <mupspecificationversion>2.4.3</mupspecificationversion>
+    <supportedoperatingsystems>
+      <!--Delete the osidentifier element for each unsupported.  -->
+      <osidentifier name="Windows8.1" architecture="x86" />
+      <osidentifier name="Windows8.1" architecture="x64" />
+    </supportedoperatingsystems>
+	<content>
+	  <Device componentID="104057">
+			<PnPInfo>
+        		<ACPIID>413C</ACPIID>
+        		<PnPProductID>8197</PnPProductID>
+			</PnPInfo>
+        <Image type="DRVR" version="12.0.1.750">
+          <file>bcbtums-win8x86-brcm.inf</file>
+		  <file>bcbtums-win8x64-brcm.inf</file>
+        </Image>
+      </Device>
+	  <Device componentID="104057">
+			<PnPInfo>
+        		<ACPIID>413C</ACPIID>
+        		<PnPProductID>8197</PnPProductID>
+			</PnPInfo>
+		<Image type="DRVR" version="12.0.0.8047">
+          <file>bcbtumsLD-win7x86.inf</file>
+		  <file>bcbtumsLD-win7x64.inf</file>
+        </Image>
+      </Device>
+	  <Device componentID="104057">
+			<PnPInfo>
+        		<ACPIID>413C</ACPIID>
+        		<PnPProductID>8197</PnPProductID>
+			</PnPInfo>
+		<Image type="DRVR" version="1.0.0.102">
+          <file>bcmhidnossr.inf</file>
+        </Image>
+      </Device>
+    </content>
+  </packageinformation>
+  <executable>
+    <executablename>Setup.exe</executablename>
+  </executable>
+  <behaviors>
+    <!-- Delete the behavior element for each unsupported behavior -->
+    <behavior name="attended"></behavior>
+    <behavior name="unattended">
+      <vendoroption>
+        <optionvalue switch="/" requiresvalue="false">s</optionvalue>
+      </vendoroption>
+    </behavior>
+    <behavior name="extractdrivers">
+      <vendoroption>
+        <container>
+          <containervalue switch="/" requiresvalue="false" valuedelimiter="">v</containervalue>
+          <optionvalue switch="" requiresvalue="true" valuedelimiter="=" enclose="&quot;">EXTRACTDRIVERS</optionvalue>
+        </container>
+      </vendoroption>
+    </behavior>
+    <behavior name="freshinstall">
+      <vendoroption>
+        <container>
+          <containervalue switch="/" requiresvalue="false" valuedelimiter="" enclose="">v</containervalue>
+          <optionvalue switch="" requiresvalue="false">FRESHINSTALL=true</optionvalue>
+        </container>
+      </vendoroption>
+    </behavior>
+  </behaviors>
+  <parameters>
+    <parametermapping name="logfile">
+      <vendoroption>
+        <container>
+          <containervalue switch="" requiresvalue="false" valuedelimiter=""></containervalue>
+          <optionvalue switch="/v" requiresvalue="true" valuedelimiter="=" enclose="&quot;">LOGFILE</optionvalue>
+        </container>
+      </vendoroption>
+    </parametermapping>
+  </parameters>
+  <returncodes>
+    <!-- remove the returncodemapping element for each return code that is not supported by the MUP -->
+    <returncodemapping name="SUCCESS">
+      <vendorreturncode>0</vendorreturncode>
+    </returncodemapping>
+    <returncodemapping name="ERROR">
+      <vendorreturncode>1603</vendorreturncode>
+    </returncodemapping>
+  </returncodes>
+  <inventorymetadata>
+    <fullpackageidentifier>
+		<pnpids>
+        	<pnpdevice display="Broadcom Bluetooth" componentID="104057">
+        		<pnpidstring>
+        		<ACPIID>413C</ACPIID>
+        		<PnPProductID>8197</PnPProductID>
+        		</pnpidstring>
+        		<pnpidstring>
+        		<ACPIID>413C</ACPIID>
+        		<PnPProductID>8143</PnPProductID>
+        		</pnpidstring>
+        		<pnpidstring>
+        		<ACPIID>0A5C</ACPIID>
+        		<PnPProductID>6412</PnPProductID>
+        		</pnpidstring>
+        		<pnpidstring>
+        		<ACPIID>0A5C</ACPIID>
+        		<PnPProductID>6410</PnPProductID>
+        		</pnpidstring>
+        		<pnpidstring>
+        		<ACPIID>0A5C</ACPIID>
+        		<PnPProductID>216A</PnPProductID>
+        		</pnpidstring>
+        	</pnpdevice>
+		</pnpids>
+    </fullpackageidentifier>
+  </inventorymetadata>
+</MUPDefinition>
